@@ -2,8 +2,10 @@ import { getMatchingLetters } from "./strings";
 
 describe(`Strings`, () => {
   describe(`getMatchingLetters`, () => {
-    it(`returns an empty array back if there are no words`, () => {
-      expect(getMatchingLetters()).toMatchObject([]);
+    it(`should throw an error if there are no words`, () => {
+      expect(() => {
+        getMatchingLetters();
+      }).toThrow();
     });
 
     it(`returns a every letter when a single word is passed`, () => {
@@ -19,6 +21,7 @@ describe(`Strings`, () => {
     });
 
     it(`returns an array of matching letters between all words ignoring case`, () => {
+      expect(getMatchingLetters("Dan")).toMatchObject(["d", "a", "n"]);
       expect(getMatchingLetters("Daniel", "Todd")).toMatchObject(["d"]);
     });
 
@@ -32,6 +35,7 @@ describe(`Strings`, () => {
     });
 
     it(`returns an array without duplicates`, () => {
+      expect(getMatchingLetters("aaaaa")).toMatchObject(["a"]);
       expect(getMatchingLetters("aaaaa", "aaaa")).toMatchObject(["a"]);
     });
   });
