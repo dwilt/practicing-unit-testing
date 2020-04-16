@@ -18,6 +18,10 @@ describe(`Strings`, () => {
       expect(getMatchingLetters("daniel", "joe")).toMatchObject(["e"]);
     });
 
+    it(`returns an array of matching letters between all words ignoring case`, () => {
+      expect(getMatchingLetters("Daniel", "Todd")).toMatchObject(["d"]);
+    });
+
     it(`returns an array without spaces`, () => {
       expect(getMatchingLetters("da n")).toMatchObject(["d", "a", "n"]);
 
@@ -25,6 +29,10 @@ describe(`Strings`, () => {
         "a",
         "e",
       ]);
+    });
+
+    it(`returns an array without duplicates`, () => {
+      expect(getMatchingLetters("aaaaa", "aaaa")).toMatchObject(["a"]);
     });
   });
 });

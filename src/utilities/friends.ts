@@ -11,7 +11,7 @@ interface GetInfoReturnValue {
   matchingLetters: string[];
 }
 
-export function getInfo(friends: Friend[]): GetInfoReturnValue {
+export function getInfoAboutYourFriends(friends: Friend[]): GetInfoReturnValue {
   const totalAge = addNumbers(...friends.map(({ age }) => age));
   const matchingLetters = getMatchingLetters(
     ...friends.map(({ name }) => name)
