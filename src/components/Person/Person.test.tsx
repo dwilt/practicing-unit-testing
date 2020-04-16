@@ -65,13 +65,13 @@ describe(`Person`, () => {
 
   describe(`interesting info`, () => {
     it(`should show the total age of the person and all their friends`, () => {
-      expect(screen.queryByText(/Total age of/).textContent).toBe(
+      expect(screen.queryByText(/Total age of/)).toContainHTML(
         `Total age of ${name}'s and friends' combined: 99`
       );
     });
 
     it(`should show the shared letters of the person's and all their friends' names`, () => {
-      expect(screen.queryByText(/Shared letters between/).textContent).toBe(
+      expect(screen.queryByText(/Shared letters between/)).toContainHTML(
         `Shared letters between ${name} and their friends' names: aner`
       );
     });
