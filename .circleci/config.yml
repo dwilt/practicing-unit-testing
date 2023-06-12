@@ -17,6 +17,13 @@ jobs:
       - run:
           name: "Say hello"
           command: "echo Hello, World!"
+  say-something-else:
+    docker:
+      - image: cimg/base:stable
+    steps: 
+      - run:
+          name: "Say something else"
+          command: "echo Whats up"
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
@@ -24,3 +31,4 @@ workflows:
   say-hello-workflow:
     jobs:
       - say-hello
+      - say-something-else
