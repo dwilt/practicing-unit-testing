@@ -1,16 +1,8 @@
 version: 2.1
-
-jobs:
-  integation-tests:
-    docker:
-      - image: cypress/included:latest
-    steps:
-      - checkout
-      - run: npx cypress run
-
+orbs:
+  cypress: cypress-io/cypress@3
 workflows:
-  its:
+  use-my-orb:
     jobs:
-      - integation-tests
-      
-          
+      - cypress/run:
+          cypress-command: npx cypress run          
