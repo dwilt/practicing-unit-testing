@@ -21,6 +21,7 @@ jobs:
     docker:
       - image: cimg/base:stable
     steps: 
+      - checkout
       - run:
           name: "Say something else"
           command: "echo Whats up"
